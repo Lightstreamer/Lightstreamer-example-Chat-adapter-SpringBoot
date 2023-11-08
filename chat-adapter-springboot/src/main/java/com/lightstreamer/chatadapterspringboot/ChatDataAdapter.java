@@ -68,7 +68,7 @@ public class ChatDataAdapter implements DataProvider {
 
     private ItemEventListener listener;
 
-    public ChatDataAdapter(String name) {
+    public ChatDataAdapter(String name, String flushi) {
 
         this.executor = Executors.newSingleThreadExecutor();
 
@@ -76,7 +76,18 @@ public class ChatDataAdapter implements DataProvider {
 
         this.flushSnapshot = true;
 
-        this.flushInterval = DEFAULT_FLUSH_INTERVAL;
+        int interval = 0;
+
+        try {
+            interval = Integer.parseInt(flushi);
+        } catch (NumberFormatException nfe) {
+            // ops....
+        }
+        if ((interval > 0) && (interval < Integer.MAX_VALUE)) {
+            this.flushInterval = interval;
+        } else {
+            this.flushInterval = DEFAULT_FLUSH_INTERVAL;
+        }
 
         this.messagesPresence = false;
 

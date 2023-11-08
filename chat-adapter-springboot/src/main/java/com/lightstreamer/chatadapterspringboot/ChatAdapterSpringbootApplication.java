@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.lightstreamer.adapters.remote.DataProviderServer;
 import com.lightstreamer.adapters.remote.MetadataProviderServer;
-import com.lightstreamer.adapters.remote.metadata.LiteralBasedProvider;
 import com.lightstreamer.log.LogManager;
 import com.lightstreamer.log.Logger;
 
@@ -56,12 +55,19 @@ public class ChatAdapterSpringbootApplication implements ApplicationRunner {
 	@Value("${server.name}")
 	private String name = "";
 
+	@Value("${data.flush.interval:0}")
+	private String flushi;
+
+	@Value("${server.user:}")
+	private String username = null;
+
+	@Value("${server.password:}")
+	String password = null;
+
 	private boolean isTls;
 	private boolean isHostnameVerify;
 	int rrPortMD = -1;
 	int rrPortD = -1;
-	String username = null;
-	String password = null;
 
 	private static Logger LOG = LogManager.getLogger(ChatAdapterSpringbootApplication.class.toString());
 
@@ -91,6 +97,8 @@ public class ChatAdapterSpringbootApplication implements ApplicationRunner {
 
 		System.out.println("Lightstreamer server name: " + name);
 
+		System.out.println("Data Adapter flush chat history interval: " + flushi);
+
 		System.out.println("Start Lightstreamer Chat remote Adapter ... ");
 
 		/*
@@ -104,7 +112,10 @@ public class ChatAdapterSpringbootApplication implements ApplicationRunner {
 		if (name != null) {
 			metaserver.setName(name);
 		}
-		if (username != null) {
+		if (username.length() > 0) {
+
+			System.out.println("Credentials: " + username + ", " + password);
+
 			metaserver.setRemoteUser(username);
 			metaserver.setRemotePassword(password);
 		}
@@ -122,7 +133,7 @@ public class ChatAdapterSpringbootApplication implements ApplicationRunner {
 		ServerStarter data_starter = new ServerStarter(host, isTls, isHostnameVerify, rrPortD);
 
 		DataProviderServer server = new DataProviderServer();
-		server.setAdapter(new ChatDataAdapter(name));
+		server.setAdapter(new ChatDataAdapter(name, flushi));
 
 		if (name != null) {
 			server.setName(name);
