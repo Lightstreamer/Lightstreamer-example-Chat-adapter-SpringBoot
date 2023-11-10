@@ -2,6 +2,7 @@
 
 The *Lightstreamer Basic Chat Demo* is a very simple chat application, based on [Lightstreamer](http://www.lightstreamer.com) for its real-time communication needs.
 This project contains the source code and all the resources needed to develop remote adapters for the demo based on a [Spring Boot stand-alone apllication](https://spring.io/projects/spring-boot#overview).
+Using Spring Boot for development of remote adapters in Lightstreamer applications can benefit from simplified setup, efficient integration, and robust testing capabilities.
 
 As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
 
@@ -57,8 +58,10 @@ The `adapters.xml` file for this demo should look like:
 You can easily expand your configurations using the generic template
 for [basic](https://lightstreamer.com/docs/ls-ARI/latest/adapter_conf_template/adapters.xml) and [robust](https://lightstreamer.com/docs/ls-ARI/latest/adapter_robust_conf_template/adapters.xml) Proxy Adapters as a reference.</i>
 
-## Install
-If you want to install a version of this demo in your local Lightstreamer Server, follow these steps:
+## Build and Run
+
+If you want to build and run a version of this demo with your local Lightstreamer Server, follow these steps (the project requires [Apache Maven](https://maven.apache.org/) installed on your system):
+
  - Download *Lightstreamer Server* (Lightstreamer Server comes with a free non-expiring demo license for 20 connected users) from [Lightstreamer Download page](https://lightstreamer.com/download/), and install it, as explained in the `GETTING_STARTED.TXT` file in the installation home directory.
  - Create a folder called `RemoteChat` in the `LS_HOME/adapters` folder.
  - Create a file named `adapters.xml` in the `RemoteChat` folder, with the contents from the section above.
