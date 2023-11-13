@@ -68,7 +68,7 @@ If you want to build and run a version of this demo with your local Lightstreame
  - Launch Lightstreamer Server. The Server startup will complete only after a successful connection between the Proxy Data Adapter and the Remote Data Adapter.
  - In a terminal window, with the working directory set to 'chat-adapter-springboot', run the following command:
  ```sh 
- ./mvnw spring-boot:run "-Dspring-boot.run.arguments=--server.host=localhost --server.metadata.port=27580 --server.data.port=27780 --server.name=chat"
+ ./mvnw spring-boot:run "-Dspring-boot.run.arguments=--server.host=localhost --server.name=chat"
  ```
  - Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node#clients-using-this-adapter).
     - To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_NODECHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
@@ -128,7 +128,7 @@ See the configuration details in the [provided template](https://lightstreamer.c
 The provided source code is already predisposed for credential submission on both adapters.
 You can rerun the adapters with the new configuration by launching:<BR/>
  ```sh 
- ./mvnw spring-boot:run "-Dspring-boot.run.arguments=--server.host=localhost --server.metadata.port=27580 --server.data.port=27780 --server.name=chat --server.user=user1 --server.password=pwd1"
+ ./mvnw spring-boot:run "-Dspring-boot.run.arguments=--server.host=localhost --server.name=chat --server.user=user1 --server.password=pwd1"
  ```
 Authentication can (and should) be combined with TLS encryption.
 
