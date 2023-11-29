@@ -76,11 +76,6 @@ If you want to build and run a version of this demo with your local Lightstreame
 with:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"CHAT_REMOTE");`<BR/>
 (you don't need to reconfigure the Data Adapter name, as it is the same in both Adapter Sets).
-    - As the referred Adapter Set has changed, make sure that the front-end no longer shares the Engine with other demos.
-So a line like this:<BR/>
-`lsClient.connectionSharing.enableSharing("ChatDemoCommonConnection", "ATTACH", "CREATE");`<BR/>
-should become like this:<BR/>
-`lsClient.connectionSharing.enableSharing("RemoteChatDemoConnection", "ATTACH", "CREATE");`
     - Open a browser window and go to: [http://localhost:8080/ChatDemo](http://localhost:8080/ChatDemo)
 
 #### Add Encryption
