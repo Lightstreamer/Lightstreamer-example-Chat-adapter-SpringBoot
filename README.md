@@ -1,7 +1,7 @@
 # Lightstreamer - Chat Demo - Spring Boot Adapter #
 
 The *Lightstreamer Basic Chat Demo* is a very simple chat application, based on [Lightstreamer](http://www.lightstreamer.com) for its real-time communication needs.
-This project contains the source code and all the resources needed to develop remote adapters for the demo based on a [Spring Boot stand-alone apllication](https://spring.io/projects/spring-boot#overview).
+This project contains the source code and all the resources needed to develop remote adapters for the demo based on a [Spring Boot stand-alone application](https://spring.io/projects/spring-boot#overview).
 Developing remote adapters for Lightstreamer-based applications using Spring Boot can benefit from a simplified setup, efficient integration, and robust testing capabilities.
 
 As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
